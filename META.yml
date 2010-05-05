@@ -1,6 +1,6 @@
 ---
 name: Safe-Hole
-version: 0.11
+version: 0.12
 author:
   - Sey Nakajima <nakajima@netstock.co.jp> (Initial version)
   - Brian McCauley <nobull@cpan.org> (Maintenance)
@@ -21,9 +21,7 @@ configure_requires:
 provides:
   Safe::Hole:
     file: lib/Safe/Hole.pm
-    version: 0.11
-  Safe::Hole::User:
-    file: lib/Safe/Hole.pm
+    version: 0.12
 generated_by: Module::Build version 0.35
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
