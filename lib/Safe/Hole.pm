@@ -17,7 +17,7 @@ require DynaLoader;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 bootstrap Safe::Hole $VERSION;
 
@@ -103,7 +103,7 @@ sub wrap {
 		} elsif( $typechar ) {
 			croak "'$name' type mismatch with $type";
 		}
-	} elsif( defined %{$type.'::'} ) {
+	} elsif( %{$type.'::'} ) {
 		my $wrapclass = ref($self).'::'.$self->root().'::'.$type;
 		*{$wrapclass.'::AUTOLOAD'} = 
 			sub {
@@ -225,13 +225,13 @@ $name must like '&subroutine'. When $ref is a object $name must like '$var'.
   $hole->wrap(sub{...}, $cpt, '&foo');
   $hole->wrap($objfoo, $cpt, '$objbar');
 
-=back
-
 =item root
 
 Object method.
-  Return the namespace that is specified with constructor new().
+Return the namespace that is specified with constructor new().
 If no namespace was then root() returns 'main'.
+
+=back
 
 =head2 Warning
 
@@ -251,7 +251,11 @@ running un-trusted code would not have such a module installed.
 
 =head1 AUTHORS
 
-Sey Nakajima E<lt>nakajima@netstock.co.jpE<gt>, Brian McCauley E<lt>nobull@cpan.orgE<gt>
+Sey Nakajima <nakajima@netstock.co.jp> (Initial version)
+
+Brian McCauley <nobull@cpan.org> (Maintenance)
+
+Todd Rinaldo <toddr@cpan.org> (Maintenance)
 
 =head1 SEE ALSO
 
